@@ -4,7 +4,11 @@
   "description": "Synchronous storage for React Native.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "coverage": "jest --coverage",
+    "flow": "flow",
+    "flow-stop": "flow stop",
+    "test": "jest",
+    "test-coveralls": "npm test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "keywords": [
     "AsyncStorage",
@@ -15,12 +19,45 @@
   ],
   "author": "Raphael Porto",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raphaelpor/SyncStorage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/raphaelpor/SyncStorage/issues"
+  },
+  "homepage": "https://github.com/globocom/react-native-draftjs-render#readme",
   "peerDependencies": {
     "react": "16.0.0",
-		"react-native": "0.50.4"
+    "react-native": "0.50.4"
   },
   "devDependencies": {
+    "babel-jest": "21.2.0",
+    "babel-preset-react-native": "4.0.0",
+    "flow-bin": "0.56.0",
+    "jest": "21.2.1",
     "react": "16.0.0",
-		"react-native": "0.50.4"
+    "react-native": "0.50.4",
+    "react-test-renderer": "16.0.0"
+  },
+  "jest": {
+    "preset": "react-native",
+    "modulePathIgnorePatterns": [
+      "/DevApp/node_modules/"
+    ],
+    "clearMocks": true,
+    "coverageDirectory": "./coverage/",
+    "coverageReporters": [
+      "lcov",
+      "text"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/DevApp/",
+      "/coverage/"
+    ],
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}"
+    ]
   }
 }
