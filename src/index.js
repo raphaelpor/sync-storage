@@ -4,10 +4,10 @@ import {
 } from 'react-native';
 
 class SyncStorage {
-  data: Map = new Map();
+  data: Map<*, *> = new Map();
   loading: boolean = true;
 
-  init(keys: Array<string>) {
+  init(keys: Array<any>) {
     return AsyncStorage.multiGet(keys)
       .then((data: Array<Array<string>>) => {
         data.forEach((item: Array<string>) => {
@@ -19,11 +19,11 @@ class SyncStorage {
       });
   }
 
-  getData(key: string): any {
+  getData(key: any): any {
     return this.data.get(key);
   }
 
-  setData(key: string, value: any, dontTryAgain?: boolean) {
+  setData(key: any, value: any, dontTryAgain?: boolean) {
     this.data.set(key, value);
 
     AsyncStorage.setItem(key, JSON.stringify(value))
@@ -34,7 +34,7 @@ class SyncStorage {
       });
   }
 
-  removeData(key: string) {
+  removeData(key: any) {
     this.data.delete(key);
     AsyncStorage.removeItem(key);
   }
