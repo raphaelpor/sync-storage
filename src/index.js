@@ -19,11 +19,11 @@ class SyncStorage {
       });
   }
 
-  getData(key: any): any {
+  get(key: any): any {
     return this.data.get(key);
   }
 
-  setData(key: any, value: any, dontTryAgain?: boolean) {
+  set(key: any, value: any, dontTryAgain?: boolean) {
     this.data.set(key, value);
 
     AsyncStorage.setItem(key, JSON.stringify(value))
@@ -34,7 +34,7 @@ class SyncStorage {
       });
   }
 
-  removeData(key: any) {
+  remove(key: any) {
     this.data.delete(key);
     AsyncStorage.removeItem(key);
   }
