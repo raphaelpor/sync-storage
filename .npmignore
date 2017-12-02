@@ -1,3 +1,5 @@
 DevApp/
 README.md
 .*
+src/__tests__/
+flow-typed/
