@@ -7,6 +7,7 @@
     "coverage": "jest --coverage",
     "flow": "flow",
     "flow-stop": "flow stop",
+    "prettier": "prettier --write src/index.js",
     "test": "jest",
     "test-coveralls": "npm test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
@@ -35,7 +36,8 @@
     "babel-jest": "21.2.0",
     "babel-preset-react-native": "4.0.0",
     "flow-bin": "0.56.0",
-    "jest": "21.2.1",
+    "jest-cli": "^21.2.1",
+    "prettier": "^1.8.2",
     "react": "16.0.0",
     "react-native": "0.50.4",
     "react-test-renderer": "16.0.0"
@@ -43,7 +45,7 @@
   "jest": {
     "preset": "react-native",
     "modulePathIgnorePatterns": [
-      "/DevApp/node_modules/"
+      "/DevApp/"
     ],
     "clearMocks": true,
     "coverageDirectory": "./coverage/",
