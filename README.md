@@ -34,6 +34,14 @@ console.log(result); // 'bar'
 ### Methods Available
 
 #### init(keys: *Array*)
+Init receives a list with keys, for prepare the SyncStorage to work synchronously. See the example:
+```js
+const storageKeys = ['foo', 'fox'];
+
+const data = await SyncStorage.init(storageKeys);
+console.log('AsyncStorage is ready!', data);
+```
+
 #### get(key: *Any type*)
 
 Returns the value of key.
