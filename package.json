@@ -9,7 +9,7 @@
     "flow-stop": "flow stop",
     "prettier": "prettier --write src/index.js",
     "test": "jest",
-    "test-coveralls": "npm test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "test-codecov": "npm test && cat ./coverage/lcov.info && codecov"
   },
   "keywords": [
     "AsyncStorage",
@@ -34,7 +34,7 @@
   "devDependencies": {
     "babel-jest": "21.2.0",
     "babel-preset-react-native": "4.0.0",
-    "coveralls": "^3.0.0",
+    "codecov": "^3.0.0",
     "flow-bin": "0.56.0",
     "jest-cli": "^21.2.1",
     "prettier": "^1.8.2",
