@@ -9,7 +9,7 @@
     "flow-stop": "flow stop",
     "prettier": "prettier --write src/index.js",
     "test": "jest",
-    "test-codecov": "npm test && cat ./coverage/lcov.info && codecov"
+    "test-codecov": "npm test && codecov"
   },
   "keywords": [
     "AsyncStorage",
@@ -53,13 +53,14 @@
       "lcov",
       "text"
     ],
+    "collectCoverage": true,
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "/DevApp/",
       "/coverage/"
     ],
     "collectCoverageFrom": [
-      "**/*.{js,jsx}"
+      "**/*.{js}"
     ]
   }
 }
