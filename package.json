@@ -8,17 +8,12 @@
     "coverage": "jest --coverage",
     "flow": "flow",
     "flow-stop": "flow stop",
+    "lint": "eslint src/",
     "prettier": "prettier --write src/index.js",
     "test": "jest",
     "test-codecov": "npm test && codecov"
   },
-  "keywords": [
-    "AsyncStorage",
-    "React",
-    "Native",
-    "SyncStorage",
-    "Storage"
-  ],
+  "keywords": ["AsyncStorage", "React", "Native", "SyncStorage", "Storage"],
   "author": "Raphael Porto",
   "license": "MIT",
   "repository": {
@@ -52,23 +47,12 @@
   },
   "jest": {
     "preset": "react-native",
-    "modulePathIgnorePatterns": [
-      "/DevApp/"
-    ],
+    "modulePathIgnorePatterns": ["/DevApp/"],
     "clearMocks": true,
     "coverageDirectory": "./coverage/",
-    "coverageReporters": [
-      "lcov",
-      "text"
-    ],
+    "coverageReporters": ["lcov", "text"],
     "collectCoverage": true,
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/DevApp/",
-      "/coverage/"
-    ],
-    "collectCoverageFrom": [
-      "**/*.{js}"
-    ]
+    "coveragePathIgnorePatterns": ["/node_modules/", "/DevApp/", "/coverage/"],
+    "collectCoverageFrom": ["**/*.{js}"]
   }
 }
