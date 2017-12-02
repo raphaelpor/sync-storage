@@ -10,7 +10,7 @@ Synchronous storage for [React Native](https://facebook.github.io/react-native/)
 
 * [Installation](https://github.com/raphaelpor/sync-storage#Installation)
 * [Usage](https://github.com/raphaelpor/sync-storage#Usage)
-* [Methods Available](https://github.com/raphaelpor/sync-storage#Methods Available)
+* [Methods Available](https://github.com/raphaelpor/sync-storage#methods-available)
 
 ### Installation
 
