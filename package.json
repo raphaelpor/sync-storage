@@ -1,5 +1,5 @@
 {
-  "name": "syncstorage",
+  "name": "sync-storage",
   "version": "0.0.1",
   "description": "Synchronous storage for React Native.",
   "main": "src/index.js",
