@@ -3,4 +3,4 @@ node_js:
   - "node"
 before_script:
   - "npm install"
-script: npm run lint && npm run test-codecov -- -t $token
+script: npm run check-code && npm run test-codecov -- -t $token

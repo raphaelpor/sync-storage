@@ -4,12 +4,13 @@
   "description": "Synchronous storage for React Native.",
   "main": "src/index.js",
   "scripts": {
-    "sync-devapp": "cp -R ./src ./DevApp/sync-storage",
+    "check-code": "npm run lint && npm run flow",
     "coverage": "jest --coverage",
     "flow": "flow",
     "flow-stop": "flow stop",
     "lint": "eslint src/",
     "prettier": "prettier --write src/index.js",
+    "sync-devapp": "cp -R ./src ./DevApp/sync-storage",
     "test": "jest",
     "test-codecov": "npm test && codecov"
   },
