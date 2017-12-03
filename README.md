@@ -28,8 +28,8 @@ yarn add sync-storage
 import SyncStorage from 'sync-storage';
 
 SyncStorage.set('foo', 'bar');
-const result = SyncStorage.get('foo');
 
+const result = SyncStorage.get('foo');
 console.log(result); // 'bar'
 ```
 
