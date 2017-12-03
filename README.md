@@ -82,14 +82,6 @@ It removes the value from the memory and from the AsyncStorage.
 SyncStorage.remove('foo');
 ```
 
-#### multiRemove(keys: _Array< string >_)
-
-It removes the value from the memory and from the AsyncStorage.
-
-```js
-SyncStorage.remove('foo');
-```
-
 It also returns a Promise for post verification.
 
 ```js
