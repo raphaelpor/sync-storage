@@ -1,13 +1,9 @@
 // @flow
 import { AsyncStorage } from 'react-native';
 
-type KeyType = string;
+import handleError from './helpers/handleError';
 
-function handleError(func: string, param: string): Promise<string> {
-  const message = `${func}() requires at least ${param} as its first parameter.`;
-  console.warn(message); // eslint-disable-line no-console
-  return Promise.reject(message);
-}
+type KeyType = string;
 
 class SyncStorage {
   data: Map<*, *> = new Map();
