@@ -1,6 +1,6 @@
 {
   "name": "sync-storage",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Synchronous storage for React Native.",
   "main": "src/index.js",
   "scripts": {
@@ -14,7 +14,13 @@
     "test": "jest",
     "test-codecov": "npm test && codecov"
   },
-  "keywords": ["AsyncStorage", "React", "Native", "SyncStorage", "Storage"],
+  "keywords": [
+    "AsyncStorage",
+    "React",
+    "Native",
+    "SyncStorage",
+    "Storage"
+  ],
   "author": "Raphael Porto",
   "license": "MIT",
   "repository": {
@@ -48,12 +54,23 @@
   },
   "jest": {
     "preset": "react-native",
-    "modulePathIgnorePatterns": ["/DevApp/"],
+    "modulePathIgnorePatterns": [
+      "/DevApp/"
+    ],
     "clearMocks": true,
     "coverageDirectory": "./coverage/",
-    "coverageReporters": ["lcov", "text"],
+    "coverageReporters": [
+      "lcov",
+      "text"
+    ],
     "collectCoverage": true,
-    "coveragePathIgnorePatterns": ["/node_modules/", "/DevApp/", "/coverage/"],
-    "collectCoverageFrom": ["**/*.{js}"]
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/DevApp/",
+      "/coverage/"
+    ],
+    "collectCoverageFrom": [
+      "**/*.{js}"
+    ]
   }
 }
