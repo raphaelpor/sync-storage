@@ -1,5 +1,6 @@
 [ignore]
 .*/node_modules/.*
+.*/DevApp/.*
 
 [options]
 # Workaround to deal with this issue: https://github.com/facebook/flow/issues/869
