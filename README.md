@@ -35,18 +35,17 @@ console.log(result); // 'bar'
 
 ### Methods Available
 
-#### init(keys: _Array_)
+#### init()
 
-Init receives a list with keys, for prepare the SyncStorage to work synchronously. See the example:
+Init prepares the SyncStorage to work synchronously, by getting all values for all keys previously
+saved on RN AsyncStorage. See the example:
 
 ```js
-const storageKeys = ['foo', 'fox'];
-
-const data = await SyncStorage.init(storageKeys);
+const data = await SyncStorage.init();
 console.log('AsyncStorage is ready!', data);
 ```
 
-#### get(key: _Any type_)
+#### get(key: _string_)
 
 Returns the value of key.
 
@@ -54,7 +53,7 @@ Returns the value of key.
 SyncStorage.get('foo'); // 'bar'
 ```
 
-#### set(key: _Any type_, value: _Any type_)
+#### set(key: _string_, value: _Any type_)
 
 It saves the value on memory and on the AsyncStorage.
 
@@ -75,7 +74,15 @@ SyncStorage.set('foo', 'bar')
   });
 ```
 
-#### remove(key: _Any type_)
+#### remove(key: _string_)
+
+It removes the value from the memory and from the AsyncStorage.
+
+```js
+SyncStorage.remove('foo');
+```
+
+#### multiRemove(keys: _Array< string >_)
 
 It removes the value from the memory and from the AsyncStorage.
 
