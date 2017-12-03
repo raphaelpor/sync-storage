@@ -1,5 +1,7 @@
 # SyncStorage
-Synchronous storage for [React Native](https://facebook.github.io/react-native/).
+
+Synchronous storage for
+[React Native AsyncStorage](https://facebook.github.io/react-native/docs/asyncstorage.html).
 
 [![Build Status](https://travis-ci.org/raphaelpor/sync-storage.svg?branch=master)](https://travis-ci.org/raphaelpor/sync-storage)
 [![codecov](https://codecov.io/gh/raphaelpor/sync-storage/branch/master/graph/badge.svg)](https://codecov.io/gh/raphaelpor/sync-storage)
@@ -33,8 +35,10 @@ console.log(result); // 'bar'
 
 ### Methods Available
 
-#### init(keys: *Array*)
+#### init(keys: _Array_)
+
 Init receives a list with keys, for prepare the SyncStorage to work synchronously. See the example:
+
 ```js
 const storageKeys = ['foo', 'fox'];
 
@@ -42,7 +46,7 @@ const data = await SyncStorage.init(storageKeys);
 console.log('AsyncStorage is ready!', data);
 ```
 
-#### get(key: *Any type*)
+#### get(key: _Any type_)
 
 Returns the value of key.
 
@@ -50,7 +54,7 @@ Returns the value of key.
 SyncStorage.get('foo'); // 'bar'
 ```
 
-#### set(key: *Any type*, value: *Any type*)
+#### set(key: _Any type_, value: _Any type_)
 
 It saves the value on memory and on the AsyncStorage.
 
@@ -71,7 +75,7 @@ SyncStorage.set('foo', 'bar')
   });
 ```
 
-#### remove(key: *Any type*)
+#### remove(key: _Any type_)
 
 It removes the value from the memory and from the AsyncStorage.
 
