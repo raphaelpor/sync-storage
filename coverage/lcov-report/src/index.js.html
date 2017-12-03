@@ -22,22 +22,22 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>18/18</span>
+        <span class='fraction'>22/22</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">83.33% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>5/6</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>7/7</span>
+        <span class='fraction'>8/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>16/16</span>
+        <span class='fraction'>20/20</span>
       </div>
     </div>
   </div>
@@ -92,7 +92,17 @@
 47
 48
 49
-50</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -109,29 +119,39 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -142,13 +162,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// @flow
-import {
-  AsyncStorage,
-} from 'react-native';
+import { AsyncStorage } from 'react-native';
 &nbsp;
-export function handleError(func) {
-  const message = `${func}() requires at least a key as its first parameter.`;
-  console.warn(message);
+type KeyType = string;
+&nbsp;
+function handleError(func: string, param: string): Promise&lt;string&gt; {
+  const message = `${func}() requires at least ${param} as its first parameter.`;
+  console.warn(message); // eslint-disable-line no-console
   return Promise.reject(message);
 }
 &nbsp;
@@ -156,34 +176,44 @@ class SyncStorage {
   data: Map&lt;*, *&gt; = new Map();
   loading: boolean = true;
 &nbsp;
-  init(keys: Array&lt;any&gt;): Promise {
-    return AsyncStorage.multiGet(keys)
-      .then((data: Array&lt;Array&lt;string&gt;&gt;): Array&lt;*&gt; =&gt; {
-        data.forEach((item: Array&lt;string&gt;) =&gt; {
-          this.data.set(item[0], item[1] &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >JSON.parse(item[1]))</span>;
-          this.loading = false;
-        });
+  init(): Promise&lt;Array&lt;*&gt;&gt; {
+    return AsyncStorage.getAllKeys().then((keys: Array&lt;KeyType&gt;) =&gt;
+      AsyncStorage.multiGet(keys).then((data: Array&lt;Array&lt;KeyType&gt;&gt;): Array&lt;*&gt; =&gt; {
+        data.forEach(this.saveItem);
 &nbsp;
         return [...this.data];
-      });
+      }));
   }
 &nbsp;
-  get(key: any): any {
+  get(key: KeyType): any {
     return this.data.get(key);
   }
 &nbsp;
-  set(key: any, value: any, dontTryAgain?: boolean): Promise {
-    if (!key) return handleError('set');
+  set(key: KeyType, value: any): Promise&lt;*&gt; {
+    if (!key) return handleError('set', 'a key');
 &nbsp;
     this.data.set(key, value);
     return AsyncStorage.setItem(key, JSON.stringify(value));
   }
 &nbsp;
-  remove(key: any): Promise {
-    if (!key) return handleError('remove');
+  remove(key: KeyType): Promise&lt;*&gt; {
+    if (!key) return handleError('remove', 'a key');
 &nbsp;
     this.data.delete(key);
     return AsyncStorage.removeItem(key);
+  }
+&nbsp;
+  saveItem(item: Array&lt;KeyType&gt;) {
+    let value;
+&nbsp;
+    try {
+      value = JSON.parse(item[1]);
+    } catch (e) {
+      [, value] = item;
+    }
+&nbsp;
+    this.data.set(item[0], value);
+    this.loading = false;
   }
 }
 &nbsp;
@@ -196,7 +226,7 @@ export default syncStorage;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Dec 02 2017 14:37:38 GMT-0200 (-02)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Dec 03 2017 00:40:02 GMT-0200 (-02)
 </div>
 </div>
 <script src="../prettify.js"></script>

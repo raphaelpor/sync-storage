@@ -1,26 +1,27 @@
-import syncStorage from '../';
+import SyncStorage from '../';
 
 test("Can init with a list of keys", () => {
   expect.assertions(1);
-  return syncStorage.init(['foo']).then((data) => {
-    expect(data[0][1]).toBe(undefined);
-  });
+  return SyncStorage.set('foo', 'bar').then(() =>
+    SyncStorage.init().then((data) => {
+      expect(data[0][1]).toBe('bar');
+    }));
 });
 
 test("Can set and get a value", () => {
-  syncStorage.set('foo', 'bar');
-  expect(syncStorage.get('foo')).toBe('bar');
+  SyncStorage.set('foo', 'bar');
+  expect(SyncStorage.get('foo')).toBe('bar');
 });
 
 test("Can set and remove a value", () => {
-  syncStorage.set('foo', 'bar');
-  syncStorage.remove('foo')
-  expect(syncStorage.get('foo')).toBeFalsy();
+  SyncStorage.set('foo', 'bar');
+  SyncStorage.remove('foo')
+  expect(SyncStorage.get('foo')).toBeFalsy();
 });
 
 test("Returns a error when set() don't have a key", () => {
   expect.assertions(1);
-  return syncStorage.set()
+  return SyncStorage.set()
   .catch((error) => {
     expect(error).toMatch('set() requires at least a key as its first parameter.');
   });
@@ -28,8 +29,13 @@ test("Returns a error when set() don't have a key", () => {
 
 test("Returns a error when remove() don't have a key", () => {
   expect.assertions(1);
-  return syncStorage.remove()
+  return SyncStorage.remove()
   .catch((error) => {
     expect(error).toMatch('remove() requires at least a key as its first parameter.');
   });
+});
+
+test("Can update an item", () => {
+  SyncStorage.saveItem(['bar', 'baz']);
+  expect(SyncStorage.get('bar')).toBe('baz');
 });
