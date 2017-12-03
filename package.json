@@ -14,13 +14,7 @@
     "test": "jest",
     "test-codecov": "npm test && codecov"
   },
-  "keywords": [
-    "AsyncStorage",
-    "React",
-    "Native",
-    "SyncStorage",
-    "Storage"
-  ],
+  "keywords": ["AsyncStorage", "React", "Native", "SyncStorage", "Storage"],
   "author": "Raphael Porto",
   "license": "MIT",
   "repository": {
@@ -31,8 +25,8 @@
     "url": "https://github.com/raphaelpor/SyncStorage/issues"
   },
   "peerDependencies": {
-    "react": "16.0.0",
-    "react-native": "0.50.4"
+    "react": "*",
+    "react-native": ">=0.40"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.3",
@@ -54,23 +48,12 @@
   },
   "jest": {
     "preset": "react-native",
-    "modulePathIgnorePatterns": [
-      "/DevApp/"
-    ],
+    "modulePathIgnorePatterns": ["/DevApp/"],
     "clearMocks": true,
     "coverageDirectory": "./coverage/",
-    "coverageReporters": [
-      "lcov",
-      "text"
-    ],
+    "coverageReporters": ["lcov", "text"],
     "collectCoverage": true,
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/DevApp/",
-      "/coverage/"
-    ],
-    "collectCoverageFrom": [
-      "**/*.{js}"
-    ]
+    "coveragePathIgnorePatterns": ["/node_modules/", "/DevApp/", "/coverage/"],
+    "collectCoverageFrom": ["**/*.{js}"]
   }
 }
