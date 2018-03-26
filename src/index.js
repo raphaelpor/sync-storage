@@ -9,7 +9,7 @@ class SyncStorage {
   data: Map<*, *> = new Map();
   loading: boolean = true;
 
-  init(): Promise<Array<*>> {
+  init = (): Promise<Array<*>> => {
     return AsyncStorage.getAllKeys().then((keys: Array<KeyType>) =>
       AsyncStorage.multiGet(keys).then((data: Array<Array<KeyType>>): Array<*> => {
         data.forEach(this.saveItem);
@@ -18,25 +18,25 @@ class SyncStorage {
       }));
   }
 
-  get(key: KeyType): any {
+  get = (key: KeyType): any  => {
     return this.data.get(key);
-  }
+  };
 
-  set(key: KeyType, value: any): Promise<*> {
+  set = (key: KeyType, value: any): Promise<*> => {
     if (!key) return handleError('set', 'a key');
 
     this.data.set(key, value);
     return AsyncStorage.setItem(key, JSON.stringify(value));
-  }
+  };
 
-  remove(key: KeyType): Promise<*> {
+  remove = (key: KeyType): Promise<*> => {
     if (!key) return handleError('remove', 'a key');
 
     this.data.delete(key);
     return AsyncStorage.removeItem(key);
-  }
+  };
 
-  saveItem(item: Array<KeyType>) {
+  saveItem = (item: Array<KeyType>) => {
     let value;
 
     try {
@@ -47,7 +47,7 @@ class SyncStorage {
 
     this.data.set(item[0], value);
     this.loading = false;
-  }
+  };
 }
 
 const syncStorage = new SyncStorage();
