@@ -12,7 +12,7 @@
     "prettier": "prettier --write src/index.js",
     "sync-devapp": "cp -R ./src ./DevApp/sync-storage",
     "test": "jest",
-    "test-codecov": "npm test && codecov"
+    "test-codecov": "npm test"
   },
   "keywords": [
     "AsyncStorage",
