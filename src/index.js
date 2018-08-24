@@ -12,7 +12,7 @@ class SyncStorage {
   init(): Promise<Array<*>> {
     return AsyncStorage.getAllKeys().then((keys: Array<KeyType>) =>
       AsyncStorage.multiGet(keys).then((data: Array<Array<KeyType>>): Array<*> => {
-        data.forEach(this.saveItem);
+        data.forEach(this.saveItem.bind(this));
 
         return [...this.data];
       }));
