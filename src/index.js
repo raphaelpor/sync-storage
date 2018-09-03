@@ -60,7 +60,7 @@ class SyncStorage {
     if (item !== undefined) {
       return this.set(key, value);
     }
-    const message = 'You can not update a key that has not been set yet.';
+    const message = 'You can not update a key that has not been set.';
     console.warn(message); // eslint-disable-line no-console
     return Promise.reject(message);
   }
