@@ -55,11 +55,29 @@ class SyncStorage {
 
   update(key: KeyType, value: any): Promise<*> {
     if (!key) return handleError('update', 'a key');
+
     const item = this.get(key);
     if (item !== undefined) {
       return this.set(key, value);
     }
     const message = 'You can not update a key that has not been set yet.';
+    console.warn(message); // eslint-disable-line no-console
+    return Promise.reject(message);
+  }
+
+  push(key: KeyType, value: any): Promise<*> {
+    if (!key) return handleError('push', 'a key');
+
+    const currentValue = this.get(key);
+    if (currentValue === undefined) {
+      return this.set(key, [value]);
+    }
+
+    if (Array.isArray(currentValue)) {
+      return this.set(key, [...currentValue, value]);
+    }
+
+    const message = `Existing Value should be undefined or of type Array, received ${typeof currentValue}`;
     console.warn(message); // eslint-disable-line no-console
     return Promise.reject(message);
   }
