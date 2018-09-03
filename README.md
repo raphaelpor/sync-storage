@@ -93,3 +93,27 @@ SyncStorage.remove('foo')
     console.log(error);
   });
 ```
+
+#### update(key: _string_, value: _Any type_)
+
+It updates value of already defined key on memory and on the AsyncStorage.
+
+ ```js
+ SyncStorage.set('foo', 'bar');
+ SyncStorage.update('foo', 'baz')
+   .then(() => {
+     SyncStorage.get('foo'); // 'baz'
+   })
+   .catch(error => {
+     console.log(error);
+   });
+ 
+ // error case:
+ SyncStorage.update('not_defined_yet', 'something')
+    .then(() => {
+      ...
+    })
+    .catch(error => {
+      console.log(error); // 'You can not update a key that has not been set.'
+    });
+```
