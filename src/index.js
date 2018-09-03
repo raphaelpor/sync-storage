@@ -48,6 +48,10 @@ class SyncStorage {
     this.data.set(item[0], value);
     this.loading = false;
   }
+
+  getAllKeys(): Array<*> {
+    return Array.from(this.data.keys());
+  }
 }
 
 const syncStorage = new SyncStorage();
