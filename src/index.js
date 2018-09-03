@@ -60,9 +60,8 @@ class SyncStorage {
     if (item !== undefined) {
       return this.set(key, value);
     }
-    const message = 'You can not update a key that has not been set.';
-    console.warn(message); // eslint-disable-line no-console
-    return Promise.reject(message);
+
+    return handleError('You can not update a key that has not been set.');
   }
 
   push(key: KeyType, value: any): Promise<*> {
@@ -77,9 +76,7 @@ class SyncStorage {
       return this.set(key, [...currentValue, value]);
     }
 
-    const message = `Existing Value should be undefined or of type Array, received ${typeof currentValue}`;
-    console.warn(message); // eslint-disable-line no-console
-    return Promise.reject(message);
+    return handleError(`Existing Value should be undefined or of type Array, received ${typeof currentValue}`);
   }
 }
 
