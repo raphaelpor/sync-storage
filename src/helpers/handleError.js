@@ -1,6 +1,6 @@
 // @flow
 
-function handleError(func: string, param: string): Promise<string> {
+function handleError(func: string, param: ?string): Promise<string> {
   let message;
   if (!param) {
     message = func;
