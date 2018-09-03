@@ -71,3 +71,12 @@ test('Can push a value to a key with array value', () => {
   expect(SyncStorage.get('array_key'))
     .toEqual(['a', 'b']);
 });
+
+test('Returns a error when push() to a key that has a value type other than undefined or Array', () => {
+  expect.assertions(1);
+  SyncStorage.set('array_key', 'a');
+  return SyncStorage.push('array_key', 'b')
+    .catch((error) => {
+      expect(error).toMatch(`Existing Value should be undefined or of type Array, received ${typeof SyncStorage.get('array_key')}`);
+    });
+});
