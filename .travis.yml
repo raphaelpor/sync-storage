@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "node"
+  - "lts/*"
 before_script:
   - "npm install"
-script: npm run check-code && npm run test-codecov -- -t $token
+script: npm run check-code && npm run test
