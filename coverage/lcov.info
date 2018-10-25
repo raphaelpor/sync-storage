@@ -1,5 +1,5 @@
 TN:
-SF:/Users/raphael.freitas/SyncStorage/flow-typed/npm/react-native_vx.x.x.js
+SF:/Users/raphael.freitas/Documents/GitHub/sync-storage/flow-typed/npm/react-native_vx.x.x.js
 FNF:0
 FNH:0
 LF:0
@@ -8,7 +8,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/raphael.freitas/SyncStorage/src/index.js
+SF:/Users/raphael.freitas/Documents/GitHub/sync-storage/src/index.js
 FN:12,(anonymous_0)
 FN:13,(anonymous_1)
 FN:14,(anonymous_2)
@@ -52,7 +52,7 @@ BRF:4
 BRH:4
 end_of_record
 TN:
-SF:/Users/raphael.freitas/SyncStorage/src/helpers/handleError.js
+SF:/Users/raphael.freitas/Documents/GitHub/sync-storage/src/helpers/handleError.js
 FN:3,handleError
 FNF:1
 FNH:1
