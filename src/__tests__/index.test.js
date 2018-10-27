@@ -41,8 +41,8 @@ test("Can update an item", () => {
 });
 
 test('Can get all keys from storage', () => {
-  const all_keys = SyncStorage.getAllKeys();
   SyncStorage.set('foo', 'bar');
+  const all_keys = SyncStorage.getAllKeys();
   expect(all_keys)
     .toEqual(expect.arrayContaining(['foo']));
 });

@@ -94,26 +94,12 @@ SyncStorage.remove('foo')
   });
 ```
 
-#### update(key: _string_, value: _Any type_)
+#### getAllKeys()
 
-It updates value of already defined key on memory and on the AsyncStorage.
+returns an array from all the keys.
 
  ```js
  SyncStorage.set('foo', 'bar');
- SyncStorage.update('foo', 'baz')
-   .then(() => {
-     SyncStorage.get('foo'); // 'baz'
-   })
-   .catch(error => {
-     console.log(error);
-   });
- 
- // error case:
- SyncStorage.update('not_defined_yet', 'something')
-    .then(() => {
-      ...
-    })
-    .catch(error => {
-      console.log(error); // 'You can not update a key that has not been set.'
-    });
+ SyncStorage.set('boo', 'baz');
+ console.log(SyncStorage.getAllKeys()) // ['foo', 'boo']
 ```
