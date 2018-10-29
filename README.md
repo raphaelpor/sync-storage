@@ -93,3 +93,13 @@ SyncStorage.remove('foo')
     console.log(error);
   });
 ```
+
+#### getAllKeys()
+
+returns an array from all the keys.
+
+ ```js
+ SyncStorage.set('foo', 'bar');
+ SyncStorage.set('boo', 'baz');
+ console.log(SyncStorage.getAllKeys()) // ['foo', 'boo']
+```

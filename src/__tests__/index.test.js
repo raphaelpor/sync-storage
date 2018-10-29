@@ -39,3 +39,11 @@ test("Can update an item", () => {
   SyncStorage.saveItem(['bar', 'baz']);
   expect(SyncStorage.get('bar')).toBe('baz');
 });
+
+test('Can get all keys from storage', () => {
+  SyncStorage.set('foo', 'bar');
+  const all_keys = SyncStorage.getAllKeys();
+  expect(all_keys)
+    .toEqual(expect.arrayContaining(['foo']));
+});
+
