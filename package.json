@@ -72,5 +72,8 @@
     "collectCoverageFrom": [
       "**/*.{js}"
     ]
+  },
+  "dependencies": {
+    "@react-native-community/async-storage": "^1.2.2"
   }
 }
