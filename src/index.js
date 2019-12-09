@@ -1,21 +1,24 @@
 import AsyncStorage from '@react-native-community/async-storage';
 
-
 import handleError from './helpers/handleError';
 
 type KeyType = string;
 
 class SyncStorage {
   data: Map<*, *> = new Map();
+
   loading: boolean = true;
 
   init(): Promise<Array<*>> {
     return AsyncStorage.getAllKeys().then((keys: Array<KeyType>) =>
-      AsyncStorage.multiGet(keys).then((data: Array<Array<KeyType>>): Array<*> => {
+      AsyncStorage.multiGet(keys).then((data: Array<Array<KeyType>>): Array<
+        *,
+      > => {
         data.forEach(this.saveItem.bind(this));
 
         return [...this.data];
-      }));
+      }),
+    );
   }
 
   get(key: KeyType): any {

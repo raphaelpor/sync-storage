@@ -11,7 +11,7 @@
     "lint": "eslint src/",
     "prettier": "prettier --write src/index.js",
     "sync-devapp": "cp -R ./src ./DevApp/sync-storage",
-    "test": "jest",
+    "test": "jest --config ./jest.config.js --no-cache",
     "test-codecov": "npm test && codecov"
   },
   "keywords": [
@@ -32,48 +32,63 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": ">=0.40"
+    "react-native": ">=0.61"
   },
   "devDependencies": {
-    "babel-eslint": "^8.0.3",
-    "babel-jest": "21.2.0",
-    "babel-preset-flow": "^6.23.0",
-    "babel-preset-react-native": "4.0.0",
-    "codecov": "^3.0.0",
-    "eslint": "^4.12.1",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.5.1",
-    "flow-bin": "0.56.0",
-    "jest-cli": "^21.2.1",
-    "prettier-eslint": "^8.2.2",
-    "react": "16.0.0",
-    "react-native": "0.50.4",
-    "react-test-renderer": "16.0.0"
-  },
-  "jest": {
-    "preset": "react-native",
-    "modulePathIgnorePatterns": [
-      "/DevApp/"
-    ],
-    "clearMocks": true,
-    "coverageDirectory": "./coverage/",
-    "coverageReporters": [
-      "lcov",
-      "text"
-    ],
-    "collectCoverage": true,
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/DevApp/",
-      "/coverage/"
-    ],
-    "collectCoverageFrom": [
-      "**/*.{js}"
-    ]
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-decorators": "^7.7.4",
+    "@babel/plugin-proposal-do-expressions": "^7.7.4",
+    "@babel/plugin-proposal-export-default-from": "^7.7.4",
+    "@babel/plugin-proposal-export-namespace-from": "^7.7.4",
+    "@babel/plugin-proposal-function-bind": "^7.7.4",
+    "@babel/plugin-proposal-function-sent": "^7.7.4",
+    "@babel/plugin-proposal-json-strings": "^7.7.4",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.7.4",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.7.4",
+    "@babel/plugin-proposal-numeric-separator": "^7.7.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.7.5",
+    "@babel/plugin-proposal-pipeline-operator": "^7.7.4",
+    "@babel/plugin-proposal-throw-expressions": "^7.7.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.7.4",
+    "@babel/plugin-syntax-import-meta": "^7.7.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.7.5",
+    "@babel/plugin-transform-typescript": "^7.7.4",
+    "@babel/polyfill": "^7.7.0",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-flow": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/runtime": "^7.7.6",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-jest-hoist": "^24.9.0",
+    "codecov": "^3.6.1",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.17.0",
+    "flow-bin": "0.113.0",
+    "jest-cli": "^24.9.0",
+    "metro-react-native-babel-preset": "^0.57.0",
+    "prettier-eslint": "^9.0.1",
+    "react": "^16.6.3",
+    "react-native": "^0.57.8",
+    "react-test-renderer": "16.12.0",
+    "regenerator-runtime": "^0.13.3",
+    "typescript": "^3.7.3"
   },
   "dependencies": {
-    "@react-native-community/async-storage": "^1.2.2"
+    "@react-native-community/async-storage": "^1.6.3"
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true,
+    "printWidth": 80
   }
 }
