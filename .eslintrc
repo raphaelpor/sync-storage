@@ -5,5 +5,9 @@
     "react",
     "jsx-a11y",
     "import"
-  ]
+  ],
+  "rules": {
+    "function-paren-newline": ["off", "never"],
+    "implicit-arrow-linebreak": ["off", "never"]
+  }
 }

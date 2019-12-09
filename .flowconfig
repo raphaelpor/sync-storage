@@ -9,4 +9,4 @@ module.name_mapper='\(react-native\)' -> '<PROJECT_ROOT>/flow-workaround/General
 module.name_mapper='\(react-native-draftjs-render\)' -> '<PROJECT_ROOT>/flow-workaround/GeneralStub.js.flow'
 
 [version]
-^0.56.0
+^0.113.0
