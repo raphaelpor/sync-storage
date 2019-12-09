@@ -4,22 +4,16 @@ module.exports = {
   transform: {
     '^.+\\.t|j]sx?$': require.resolve('react-native/jest/preprocessor.js')
   },
-  testMatch: [
-    '**/src/**/*.test.js'
-  ],
-  modulePathIgnorePatterns: [
-    '/DevApp/'
-  ],
   clearMocks: true,
   coverageDirectory: './coverage/',
   coverageReporters: [
     'lcov',
     'text'
   ],
+  transformIgnorePatterns: [ 'node_modules/(?!(sync-storage|react-native)/)' ],
   collectCoverage: true,
   coveragePathIgnorePatterns: [
     '/node_modules/',
-    '/DevApp/',
     '/coverage/'
   ],
   collectCoverageFrom: [
