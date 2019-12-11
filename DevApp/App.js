@@ -11,7 +11,7 @@ import {
   View,
 } from 'react-native';
 
-import SyncStorage from './sync-storage';
+import SyncStorage from 'sync-storage';
 
 const styles = StyleSheet.create({
   container: {
@@ -36,9 +36,10 @@ class App extends Component<{}> {
     };
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
     const storageKeys = ['module-name'];
     await SyncStorage.init(storageKeys);
+    SyncStorage.set('module-name', 'DevApp');
     const data = SyncStorage.get('module-name');
     this.setState({ data, loading: false });
   }
