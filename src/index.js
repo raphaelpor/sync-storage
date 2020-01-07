@@ -21,6 +21,10 @@ class SyncStorage {
     );
   }
 
+  has(key: KeyType): Boolean {
+      return this.data.has(key)
+  }
+
   get(key: KeyType): any {
     return this.data.get(key);
   }
